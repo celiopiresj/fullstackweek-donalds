@@ -15,7 +15,7 @@ const RestaurantPage = async ({ params }: RestaurantPageProps) => {
 
   if (!restaurant) return notFound();
   return (
-    <div className="flex h-dvh flex-col items-center justify-center px-6">
+    <div className="flex h-full flex-col items-center justify-center px-6">
       <div className="flex flex-col items-center gap-2">
         <Image
           src={restaurant?.avatarImageUrl}

@@ -11,16 +11,20 @@ import {
 import { CartContext } from "../../contexts/cart";
 
 const CartSheet = () => {
-  const { isOpen, toggleCart } = useContext(CartContext);
+  const { isOpen, toggleCart, products } = useContext(CartContext);
   return (
     <Sheet open={isOpen} onOpenChange={toggleCart}>
       <SheetContent>
         <SheetHeader>
           <SheetTitle>Sheet</SheetTitle>
         </SheetHeader>
-        <SheetDescription>
-          <p>Sheet description</p>
-        </SheetDescription>
+        <SheetDescription>Sheet description</SheetDescription>
+        {products.map((product) => (
+          <div key={product.id}>
+            <div>{product.name}</div>
+            <div>{product.quantity}</div>
+          </div>
+        ))}
       </SheetContent>
     </Sheet>
   );

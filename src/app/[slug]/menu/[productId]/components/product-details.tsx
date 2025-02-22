@@ -6,14 +6,6 @@ import Image from "next/image";
 import { useContext, useState } from "react";
 
 import { Button } from "@/components/ui/button";
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
 import { formatCurrency } from "@/helpers/format-currency";
 
 import { CartContext } from "../../contexts/cart";
@@ -26,7 +18,7 @@ interface ProductDetailsProps {
 }
 
 const ProductDetails = ({ product }: ProductDetailsProps) => {
-  const { toggleCart } = useContext(CartContext);
+  const { toggleCart, addProduct } = useContext(CartContext);
   const [quantity, setQuantity] = useState<number>(1);
   const handleDecreaseQuantity = () => {
     setQuantity((prev) => {
@@ -40,6 +32,10 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
   };
 
   const handleAddToCart = () => {
+    addProduct({
+      ...product,
+      quantity,
+    });
     toggleCart();
   };
 

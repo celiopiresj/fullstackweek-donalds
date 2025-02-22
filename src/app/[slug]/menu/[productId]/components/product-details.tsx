@@ -87,7 +87,7 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
           </div>
         </ScrollArea>
       </div>
-      <Button className="mt-6 w-full rounded-full">Adicionar à SACOLA</Button>
+      <Button className="mt-6 w-full rounded-full">Adicionar à sacola</Button>
     </div>
   );
 };

@@ -8,8 +8,8 @@ import { useContext, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { formatCurrency } from "@/helpers/format-currency";
 
+import CartSheet from "../../components/cart-sheet";
 import { CartContext } from "../../contexts/cart";
-import CartSheet from "./cart-sheet";
 
 interface ProductDetailsProps {
   product: Prisma.ProductGetPayload<{

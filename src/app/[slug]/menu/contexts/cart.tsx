@@ -10,28 +10,41 @@ export interface CartProduct
 export interface IcartContext {
   isOpen: boolean;
   products: CartProduct[];
+  total: number;
   toggleCart: () => void;
   addProduct: (product: CartProduct) => void;
   decreaseProductQuantity: (productId: string) => void;
+  increaseProductQuantity: (productId: string) => void;
+  removeProduct: (productId: string) => void;
 }
 export const CartContext = createContext<IcartContext>({
   isOpen: false,
   products: [],
+  total: 0,
   toggleCart: () => {},
   addProduct: () => {},
   decreaseProductQuantity: () => {},
+  increaseProductQuantity: () => {},
+  removeProduct: () => {},
 });
 
 export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   const [products, setProducts] = useState<CartProduct[]>([]);
   const [isOpen, setIsOpen] = useState(false);
+
+  const total = products.reduce(
+    (total, product) => total + product.price * product.quantity,
+    0,
+  );
+
   const toggleCart = () => setIsOpen((prev) => !prev);
   const addProduct = (product: CartProduct) => {
     const productIsAlreadyInCart = products.some(
       (prevProduct) => prevProduct.id === product.id,
     );
 
-    if (!productIsAlreadyInCart) setProducts((prev) => [...prev, product]);
+    if (!productIsAlreadyInCart)
+      return setProducts((prev) => [...prev, product]);
 
     setProducts((prevProducts) =>
       prevProducts.map((prevProduct) => {
@@ -64,14 +77,37 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
     );
   };
 
+  const increaseProductQuantity = (productId: string) => {
+    setProducts((prevProducts) =>
+      prevProducts.map((prevProduct) => {
+        if (prevProduct.id !== productId) {
+          return prevProduct;
+        }
+        return {
+          ...prevProduct,
+          quantity: prevProduct.quantity + 1,
+        };
+      }),
+    );
+  };
+
+  const removeProduct = (productId: string) => {
+    setProducts((prevProducts) =>
+      prevProducts.filter((prevProduct) => prevProduct.id !== productId),
+    );
+  };
+
   return (
     <CartContext.Provider
       value={{
         isOpen,
         products,
+        total,
         toggleCart,
         addProduct,
         decreaseProductQuantity,
+        increaseProductQuantity,
+        removeProduct,
       }}
     >
       {children}

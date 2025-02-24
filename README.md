@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# McNext Burger - Aplicativo Web Mobile de Restaurante
 
-## Getting Started
+McNext Burger é um aplicativo web mobile desenvolvido em Next.js, inspirado no McDonald's, que permite aos usuários explorar o cardápio, fazer pedidos e acompanhar o status de suas entregas. Este projeto foi criado com o objetivo de oferecer uma experiência rápida, responsiva e moderna para os clientes de fast food.
 
-First, run the development server:
+## Funcionalidades Principais
+
+- **Cardápio Interativo**: Navegue pelo cardápio com imagens, descrições e preços dos produtos.
+- **Carrinho de Compras**: Visualize e gerencie os itens adicionados ao carrinho antes de finalizar o pedido.
+- **Checkout Seguro**: Finalize o pedido com um processo de checkout simples e seguro.
+- **Acompanhamento de Pedidos**: Acompanhe o status do seu pedido em tempo real, desde a preparação até a entrega.
+- **Design Responsivo**: Interface otimizada para dispositivos móveis, garantindo uma experiência de usuário fluida.
+
+## Tecnologias Utilizadas
+
+- **Next.js**: Framework React para renderização do lado do servidor (SSR) e geração de sites estáticos (SSG).
+- **React**: Biblioteca JavaScript para construção de interfaces de usuário.
+- **TypeScript**: Adiciona tipagem estática ao JavaScript para melhorar a qualidade e a manutenibilidade do código.
+- **Tailwind CSS**: Framework CSS utilitário para estilização rápida e responsiva.
+- **Next/font**: Otimização e carregamento automático de fontes.
+
+## Como Executar o Projeto Localmente
+
+Siga os passos abaixo para rodar o projeto em sua máquina local:
+
+1. **Clone o repositório**:
+```bash
+git clone https://github.com/celiopiresj/mcnext-burger.git
+cd mcnext-burger
+```
+
+2. **Instale as dependências**:
 
 ```bash
+npm install
+# ou
+yarn install
+# ou
+pnpm install
+# ou
+bun install
+```
+
+3. **Inicie o servidor de desenvolvimento**:
+```bash
 npm run dev
-# or
+# ou
 yarn dev
-# or
+# ou
 pnpm dev
-# or
+# ou
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. **Acesse a aplicação**:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Abra o navegador e acesse http://localhost:3000/nome-do-restaurante.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
